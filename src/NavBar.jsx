@@ -300,7 +300,7 @@ function NavBar() {
 
           {/* Desktop Menu */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-            <Button 
+            {localStorage.getItem('username')=='admin'?<></>:<Button 
               color="inherit" 
               component={Link} 
               to="/" 
@@ -317,7 +317,7 @@ function NavBar() {
               }}
             >
               Home
-            </Button>
+            </Button>}
 
             {username ? (
               <>
@@ -338,7 +338,7 @@ function NavBar() {
                 >
                   Log out
                 </Button>
-                {localStorage.getItem('username')=='undefined'?null:
+                {localStorage.getItem('username')=='admin'?null:
                 <IconButton 
                   color="inherit" 
                   component={Link} 
@@ -512,7 +512,7 @@ function NavBar() {
                 }
               }}
             >
-              <ListItemIcon>
+              {localStorage.getItem('username')=='admin'?<></>:<><ListItemIcon>
                 <HomeIcon sx={{ color: '#c2a878' }} />
               </ListItemIcon>
               <ListItemText 
@@ -522,6 +522,7 @@ function NavBar() {
                   fontSize: '1rem'
                 }}
               />
+            </>}
             </ListItem>
             
             {username ? (
@@ -574,13 +575,13 @@ function NavBar() {
                       <ShoppingCartIcon sx={{ color: '#c2a878' }} />
                     </Badge>
                   </ListItemIcon>
-                  <ListItemText 
+                 {localStorage.getItem('username')=='admin'?<></>: <ListItemText 
                     primary={`Cart (${cartCountTotal} ${cartCountTotal==1?'Item':'Items'})`} 
                     primaryTypographyProps={{
                       fontFamily: 'Georgia, serif',
                       fontSize: '1rem'
                     }}
-                  />
+                  />}
                 </ListItem>
                 
                 <Divider sx={{ backgroundColor: 'rgba(255,255,255,0.1)', my: 1.5 }} />
