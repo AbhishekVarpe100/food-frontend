@@ -197,7 +197,7 @@ function NavBar() {
   const getCartCount = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/get-cart-count?username=${username}`,
+        `https://food-backend-w91g.onrender.com/get-cart-count?username=${username}`,
         { method: "GET" }
       );
       if (res.ok) {

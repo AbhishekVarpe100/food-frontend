@@ -30,7 +30,7 @@ function Orders_cust() {
   const getData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:3000/get-orders', {
+      const res = await axios.get('https://food-backend-w91g.onrender.com/get-orders', {
         params: { username: localStorage.getItem('username') },
       });
       setData(res.data);
@@ -43,7 +43,7 @@ function Orders_cust() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/delete-order/${id}`);
+      const res = await axios.delete(`https://food-backend-w91g.onrender.com/delete-order/${id}`);
       if (res.data === 'deleted') {
         setSuccess((prev) => !prev);
       }

@@ -10,14 +10,14 @@ function Available_Items() {
   const [searchText, setSearchText] = useState("");
 
   async function getData() {
-    const res = await axios.get("http://localhost:3000/get-data-cust");
+    const res = await axios.get("https://food-backend-w91g.onrender.com/get-data-cust");
     setData(res.data);
   }
 
   const handleOption = async (e) => {
     const option = e.target.value;
     setOption(option);
-    const res = await axios.get("http://localhost:3000/order-by", {
+    const res = await axios.get("https://food-backend-w91g.onrender.com/order-by", {
       params: { option },
     });
     if (res.data) setData(res.data);
@@ -27,7 +27,7 @@ function Available_Items() {
     const text = e.target.value;
     setSearchText(text);
     
-    const res = await axios.get("http://localhost:3000/search-item", {
+    const res = await axios.get("https://food-backend-w91g.onrender.com/search-item", {
       params: { searchText: text },
     });
     if (res.data) setData(res.data);

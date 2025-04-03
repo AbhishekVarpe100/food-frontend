@@ -19,7 +19,7 @@ function Image() {
                     <IoCloseSharp></IoCloseSharp>
                 </button>
                 <img 
-                    src={`http://localhost:3000/Food_Images/${file}`} 
+                    src={file} 
                     alt="A food image" 
                     className="max-w-[90%] max-h-[80vh] rounded-lg shadow-lg"
                 />

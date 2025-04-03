@@ -7,12 +7,12 @@ function Fav() {
     const [render, setRender] = useState(false);
 
     const getData = async () => {
-        const res = await axios.get('http://localhost:3000/get-fav', { params: { username: localStorage.getItem('username') } });
+        const res = await axios.get('https://food-backend-w91g.onrender.com/get-fav', { params: { username: localStorage.getItem('username') } });
         setData(res.data);
     };
 
     const handleDelete = async (id) => {
-        const res = await axios.delete('http://localhost:3000/del-fav', { params: { id } });
+        const res = await axios.delete('https://food-backend-w91g.onrender.com/del-fav', { params: { id } });
         if (res.data) {
             setRender(prev => !prev);
         }
@@ -50,7 +50,7 @@ function Fav() {
                                 <TableRow key={item._id} hover>
                                     <TableCell>
                                         <img
-                                            src={`http://localhost:3000/Food_Images/${item.file}`}
+                                            src={item.file}
                                             alt={item.name}
                                             className="w-16 h-16 object-cover rounded"
                                         />
