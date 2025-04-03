@@ -52,7 +52,7 @@ function AdminSuggestions() {
                   <div className="mt-4">
                     <Link
                       to={`/admin/suggestions/reply/${item._id}`}
-                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+                      className="inline-flex items-center px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors"
                     >
                       <FiEdit className="mr-2" />
                       {!item.reply ? "Give Reply" : "Edit Reply"}
