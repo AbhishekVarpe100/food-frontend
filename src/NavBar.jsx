@@ -561,7 +561,8 @@ function NavBar() {
                     }
                   }}
                 >
-                  <ListItemIcon>
+                  
+                 {localStorage.getItem('username')=='admin'?<></>:<> <ListItemIcon>
                     <Badge 
                       badgeContent={cartCountTotal} 
                       color="error"
@@ -574,14 +575,13 @@ function NavBar() {
                     >
                       <ShoppingCartIcon sx={{ color: '#c2a878' }} />
                     </Badge>
-                  </ListItemIcon>
-                 {localStorage.getItem('username')=='admin'?<></>: <ListItemText 
+                  </ListItemIcon> <ListItemText 
                     primary={`Cart (${cartCountTotal} ${cartCountTotal==1?'Item':'Items'})`} 
                     primaryTypographyProps={{
                       fontFamily: 'Georgia, serif',
                       fontSize: '1rem'
                     }}
-                  />}
+                  /></>}
                 </ListItem>
                 
                 <Divider sx={{ backgroundColor: 'rgba(255,255,255,0.1)', my: 1.5 }} />
