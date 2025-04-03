@@ -112,7 +112,7 @@ function Cart() {
                         <CardMedia
                           component="img"
                           sx={{ width: 80, height: 80, borderRadius: 2 }}
-                          image={`http://localhost:3000/Food_Images/${ele.file}`}
+                          image={ele.file}
                           alt={ele.name}
                         />
                       </TableCell>
