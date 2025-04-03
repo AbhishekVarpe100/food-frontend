@@ -7,7 +7,7 @@ function AdminSuggestions() {
   const [data, setData] = useState([]);
 
   const getData = async () => {
-    const res = await axios.get("http://localhost:3000/get-all-suggestions");
+    const res = await axios.get("https://food-backend-w91g.onrender.com/get-all-suggestions");
     setData(res.data);
   };
 

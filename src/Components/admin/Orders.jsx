@@ -9,7 +9,7 @@ function Orders() {
 
   const getData = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/get-orders-data');
+      const res = await axios.get('https://food-backend-w91g.onrender.com/get-orders-data');
       setData(res.data);
     } catch (error) {
       console.error('Error fetching orders:', error);
