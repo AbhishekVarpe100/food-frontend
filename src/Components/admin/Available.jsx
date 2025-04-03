@@ -108,7 +108,7 @@ function Available() {
       <button
         disabled={page - 3 <= 0}
         onClick={handlePrevious}
-        className={`flex items-center text-blue-500 border border-blue-500 rounded-md px-4 py-2 hover:bg-blue-50 ${
+        className={`flex items-center text-blue-500 border border-blue-500 m-2 rounded-md px-4 py-2 hover:bg-blue-50 ${
           page - 3 <= 0 ? "opacity-50 cursor-not-allowed" : ""
         }`}
       >
@@ -123,7 +123,7 @@ function Available() {
       <button
         disabled={data.length < 3}
         onClick={handleNext}
-        className={`flex items-center text-blue-500 border border-blue-500 rounded-md px-4 py-2 hover:bg-blue-50 ${
+        className={`flex items-center m-2 text-blue-500 border border-blue-500 rounded-md px-4 py-2 hover:bg-blue-50 ${
           data.length < 3 ? "opacity-50 cursor-not-allowed" : ""
         }`}
       >
