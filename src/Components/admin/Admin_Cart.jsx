@@ -8,7 +8,7 @@ function Admin_Cart() {
   const [data, setData] = useState([]);
 
   const getData = async () => {
-    const res = await axios.get('http://localhost:3000/get-admin-cart');
+    const res = await axios.get('https://food-backend-w91g.onrender.com/get-admin-cart');
     setData(res.data);
   };
 
