@@ -7,7 +7,7 @@ const Status = () => {
   const [data, setData] = useState({});
 
   const getData = async () => {
-    const res = await axios.get("http://localhost:3000/get-status/" + id);
+    const res = await axios.get("https://food-backend-w91g.onrender.com/get-status/" + id);
     setData(res.data);
   };
 
