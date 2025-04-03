@@ -27,7 +27,7 @@ function EditSuggestion() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.put(`https://food-backend-w91g.onrender.com/edit-suggestion${id}`, { suggestion });
+            const res = await axios.put(`https://food-backend-w91g.onrender.com/edit-suggestion/${id}`, { suggestion });
             if (res.data === 'edited') {
                 setShowNotification(true);
                 setTimeout(() => {
