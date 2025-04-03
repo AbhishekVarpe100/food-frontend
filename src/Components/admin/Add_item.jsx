@@ -1,29 +1,33 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { FiUploadCloud } from 'react-icons/fi';
+import { FiUploadCloud, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 
 function AddItem() {
   const [data, setData] = useState({ name: '', price: '', quantity: '' });
   const [file, setFile] = useState(null);
   const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
   const [uploading, setUploading] = useState(false);
   const navigate = useNavigate();
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUploading(true);
+    setError('');
+    setSuccess('');
+
     const formData = new FormData();
     formData.append('food', data.name);
     formData.append('price', data.price);
     formData.append('quantity', data.quantity);
     formData.append('file', file);
-    
+
     try {
       const res = await axios.post('https://food-backend-w91g.onrender.com/add-item', formData);
       if (res.data.msg === 'added') {
@@ -36,23 +40,32 @@ function AddItem() {
       }
     } catch (error) {
       console.error('Error adding item:', error);
+      setError('Failed to add item. Please try again.');
       setUploading(false);
     }
   };
-  
+
   return (
     <div className="max-w-md mx-auto p-6">
-      <div className="bg-white rounded-lg shadow-md p-6 mt-8">
-        <h2 className="text-2xl font-semibold text-center mb-6">
+      <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
+        <h2 className="text-xl font-medium text-center mb-6">
           Add Food Item
         </h2>
-        
+
         {success && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+          <div className="flex items-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            <FiCheckCircle className="mr-2" />
             {success}
           </div>
         )}
-        
+
+        {error && (
+          <div className="flex items-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <FiAlertCircle className="mr-2" />
+            {error}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700 mb-1">Food Name</label>
@@ -61,10 +74,10 @@ function AddItem() {
               name="name"
               required
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          
+
           <div>
             <label className="block text-gray-700 mb-1">Price</label>
             <input
@@ -72,10 +85,10 @@ function AddItem() {
               name="price"
               required
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          
+
           <div>
             <label className="block text-gray-700 mb-1">Quantity</label>
             <input
@@ -83,12 +96,12 @@ function AddItem() {
               name="quantity"
               required
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          
+
           <div className="relative">
-            <label className="inline-block w-full px-4 py-2 bg-amber-500 text-white rounded-md cursor-pointer hover:bg-amber-600 transition-colors text-center">
+            <label className="inline-block w-full px-4 py-2 bg-yellow-500 text-white rounded-md cursor-pointer hover:bg-yellow-600 transition-colors text-center">
               <FiUploadCloud className="inline-block mr-2" />
               Upload Image
               <input
@@ -104,16 +117,16 @@ function AddItem() {
               </p>
             )}
           </div>
-          
+
           <button
             type="submit"
-            className="w-full font-bold px-4 py-2 text-amber-500 border border-amber-500 rounded-md hover:bg-amber-500 hover:text-white transition-colors"
+            className="w-full font-medium px-4 py-2 text-yellow-500 border border-yellow-500 rounded-md hover:bg-yellow-500 hover:text-white transition-colors"
           >
             Add Item
           </button>
-          
+
           {uploading && (
-            <div className="text-center font-bold text-green-500">
+            <div className="text-center font-medium text-blue-500">
               Uploading...
             </div>
           )}
