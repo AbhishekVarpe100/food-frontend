@@ -51,7 +51,7 @@ function Login() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:3000/login', user);
+      const res = await axios.post('https://food-backend-w91g.onrender.com/login', user);
 
       // Store user details in localStorage
       localStorage.setItem('token', `bearer ${res.data.token}`);

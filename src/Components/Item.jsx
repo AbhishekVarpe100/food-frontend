@@ -172,7 +172,7 @@ function Item() {
                     height: { xs: 240, md: 'auto' },
                     objectFit: 'cover'
                   }}
-                  image={`http://localhost:3000/Food_Images/${ele.file}`}
+                  image={ele.file}
                   alt={ele.name}
                 />
                 

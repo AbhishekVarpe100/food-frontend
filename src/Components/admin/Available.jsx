@@ -160,7 +160,7 @@ function Available() {
                     <CardMedia
                       component="img"
                       height="200"
-                      image={`http://localhost:3000/Food_Images/${item.file}`}
+                      image={item.file}
                       alt={item.name}
                       className="h-48 object-cover"
                     />

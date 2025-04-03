@@ -155,7 +155,7 @@ function Available_Items() {
                         )}
                         
                         <img
-                          src={`http://localhost:3000/Food_Images/${item.file}`}
+                          src={item.file}
                           alt={item.name}
                           className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
                         />
