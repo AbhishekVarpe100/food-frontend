@@ -118,7 +118,7 @@ const Reviews = () => {
                         <Button 
                             type="submit"
                             variant="contained" 
-                            color="warning"
+                            color="primary"
                             >
                             Submit Review
                         </Button>
