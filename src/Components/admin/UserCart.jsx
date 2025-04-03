@@ -49,7 +49,7 @@ function UserCart() {
             </td>
             <td className="px-6 py-3 text-center border border-gray-300">
               <img
-                src={`http://localhost:3000/Food_Images/${item.file}`}
+                src={item.file}
                 alt="Item"
                 className="h-16 w-16 object-cover rounded-lg border border-gray-200"
               />
