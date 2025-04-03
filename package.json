@@ -22,7 +22,7 @@
     "@nextui-org/react": "^2.6.11",
     "@tabler/icons-react": "^3.31.0",
     "antd": "^5.24.5",
-    "axios": "^1.7.7",
+    "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "framer-motion": "^12.6.0",
     "heroui-cli": "^1.0.0",
