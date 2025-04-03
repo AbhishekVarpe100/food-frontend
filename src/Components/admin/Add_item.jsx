@@ -126,7 +126,7 @@ function AddItem() {
           </button>
 
           {uploading && (
-            <div className="text-center font-medium text-blue-500">
+            <div className="text-center font-medium text-green-500">
               Uploading...
             </div>
           )}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import { 
   Card, CardContent, CardMedia, Typography, Button, 
@@ -103,33 +104,33 @@ function Available() {
 
       <Container maxWidth="lg" className="pb-16">
         {/* Pagination Controls */}
-        <Box className="flex justify-between items-center mb-8 px-4">
-          <Button 
-            variant="outlined" 
-            color="primary"
-            disabled={page - 3 <= 0}
-            onClick={handlePrevious}
-            startIcon={<NavigateBefore />}
-            className="hover:bg-blue-50"
-          >
-            Previous
-          </Button>
-          
-          <Typography variant="body1" className="text-gray-600 font-medium">
-            Page {Math.ceil(page / 3)} of {pageCount || 1}
-          </Typography>
-          
-          <Button 
-            variant="outlined" 
-            color="primary"
-            disabled={data.length < 3}
-            onClick={handleNext}
-            endIcon={<NavigateNext />}
-            className="hover:bg-blue-50"
-          >
-            Next
-          </Button>
-        </Box>
+        <div className="flex justify-between items-center mb-8 px-4">
+      <button
+        disabled={page - 3 <= 0}
+        onClick={handlePrevious}
+        className={`flex items-center text-blue-500 border border-blue-500 rounded-md px-4 py-2 hover:bg-blue-50 ${
+          page - 3 <= 0 ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+      >
+        <FiChevronLeft className="mr-2" />
+        Previous
+      </button>
+
+      <p className="text-gray-600 font-medium">
+        Page {Math.ceil(page / 3)} of {pageCount || 1}
+      </p>
+
+      <button
+        disabled={data.length < 3}
+        onClick={handleNext}
+        className={`flex items-center text-blue-500 border border-blue-500 rounded-md px-4 py-2 hover:bg-blue-50 ${
+          data.length < 3 ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+      >
+        Next
+        <FiChevronRight className="ml-2" />
+      </button>
+    </div>
 
         {/* Loading State */}
         {loading && (
