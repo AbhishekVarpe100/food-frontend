@@ -53,7 +53,6 @@ function Login() {
     try {
       const res = await axios.post('https://food-backend-w91g.onrender.com/login', user);
 
-      // Store user details in localStorage
       localStorage.setItem('token', `bearer ${res.data.token}`);
       localStorage.setItem('username', res.data.username);
       localStorage.setItem('email', res.data.email);
@@ -109,7 +108,7 @@ function Login() {
               variant: "h5", 
               align: "center", 
               fontWeight: "bold",
-              color: "primary.main"
+              color: "warning.main"
             }}
             sx={{ 
               bgcolor: 'grey.100', 
@@ -155,7 +154,7 @@ function Login() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <PersonIcon color="primary" />
+                      <PersonIcon color="warning" />
                     </InputAdornment>
                   ),
                 }}
@@ -178,7 +177,7 @@ function Login() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <LockIcon color="primary" />
+                      <LockIcon color="warning" />
                     </InputAdornment>
                   ),
                   endAdornment: (
@@ -198,26 +197,25 @@ function Login() {
               />
               
               <Button
-		  type="submit"
-		  fullWidth
-		  variant="contained"
-		  size="large"
-		  color="warning" 
-		  sx={{ 
-		    mt: 1, 
-		    mb: 2, 
-		    py: 1.5,
-		    fontSize: '1rem',
-		    boxShadow: 2,
-		    '&:hover': {
-		      boxShadow: 4
-		    }
-		  }}
-		>
-		  Sign In
-		</Button>
+                type="submit"
+                fullWidth
+                variant="contained"
+                size="large"
+                color="warning"
+                sx={{ 
+                  mt: 1, 
+                  mb: 2, 
+                  py: 1.5,
+                  fontSize: '1rem',
+                  boxShadow: 2,
+                  '&:hover': {
+                    boxShadow: 4
+                  }
+                }}
+              >
+                Sign In
+              </Button>
 
-              
               <Divider sx={{ my: 2 }}>
                 <Typography variant="body2" color="text.secondary">
                   OR
@@ -227,10 +225,11 @@ function Login() {
               <Box textAlign="center" mt={2}>
                 <Typography variant="body2" color="text.secondary">
                   Don't have an account?{' '}
-                  <Typography onClick={()=>navigate('/register')}
+                  <Typography 
+                    onClick={() => navigate('/register')}
                     component="span" 
                     variant="body2" 
-                    color="primary" 
+                    color="warning.main" 
                     sx={{ 
                       cursor: 'pointer',
                       fontWeight: 'bold',
@@ -252,3 +251,4 @@ function Login() {
 }
 
 export default Login;
+
