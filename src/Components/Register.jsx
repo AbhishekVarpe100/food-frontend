@@ -35,7 +35,7 @@ function Register() {
   const [rateLimit, setRateLimit] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -108,21 +108,21 @@ function Register() {
     >
       <Container maxWidth="sm" sx={{ position: "relative", zIndex: 2 }}>
         <Card elevation={8} sx={{ borderRadius: 2 }}>
-          <CardHeader 
-            title="Create Account" 
-            titleTypographyProps={{ 
-              variant: "h5", 
-              align: "center", 
+          <CardHeader
+            title="Create Account"
+            titleTypographyProps={{
+              variant: "h5",
+              align: "center",
               fontWeight: "bold",
-              color: "primary.main"
+              color: "warning.main"
             }}
-            sx={{ 
-              bgcolor: 'grey.100', 
-              pb: 1, 
-              pt: 3 
+            sx={{
+              bgcolor: 'grey.100',
+              pb: 1,
+              pt: 3
             }}
           />
-          
+
           <CardContent sx={{ p: 4 }}>
             <Stack spacing={2} sx={{ mb: 3 }}>
               {exist && (
@@ -162,13 +162,13 @@ function Register() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <PersonIcon color="primary" />
+                      <PersonIcon color="warning" />
                     </InputAdornment>
                   ),
                 }}
                 sx={{ mb: 3 }}
               />
-              
+
               <TextField
                 margin="normal"
                 required
@@ -186,13 +186,13 @@ function Register() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <EmailIcon color="primary" />
+                      <EmailIcon color="warning" />
                     </InputAdornment>
                   ),
                 }}
                 sx={{ mb: 3 }}
               />
-              
+
               <TextField
                 margin="normal"
                 required
@@ -210,7 +210,7 @@ function Register() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <LockIcon color="primary" />
+                      <LockIcon color="warning" />
                     </InputAdornment>
                   ),
                   endAdornment: (
@@ -228,16 +228,17 @@ function Register() {
                 }}
                 sx={{ mb: 4 }}
               />
-              
+
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 size="large"
                 disabled={isSubmitting}
-                sx={{ 
-                  mt: 1, 
-                  mb: 2, 
+                color="warning"
+                sx={{
+                  mt: 1,
+                  mb: 2,
                   py: 1.5,
                   fontSize: '1rem',
                   boxShadow: 2,
@@ -248,21 +249,22 @@ function Register() {
               >
                 {isSubmitting ? "Creating Account..." : "Register"}
               </Button>
-              
+
               <Divider sx={{ my: 2 }}>
                 <Typography variant="body2" color="text.secondary">
                   OR
                 </Typography>
               </Divider>
-              
+
               <Box textAlign="center" mt={2}>
                 <Typography variant="body2" color="text.secondary">
                   Already have an account?{' '}
-                  <Typography onClick={()=>navigate('/login')}
-                    component="span" 
-                    variant="body2" 
-                    color="primary" 
-                    sx={{ 
+                  <Typography
+                    onClick={() => navigate('/login')}
+                    component="span"
+                    variant="body2"
+                    color="warning"
+                    sx={{
                       cursor: 'pointer',
                       fontWeight: 'bold',
                       '&:hover': {
@@ -283,3 +285,4 @@ function Register() {
 }
 
 export default Register;
+
