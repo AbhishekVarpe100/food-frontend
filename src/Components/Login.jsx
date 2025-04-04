@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate } from 'react-router-dom';
 import { 
   Button, 
@@ -30,6 +31,7 @@ function Login() {
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -49,6 +51,7 @@ function Login() {
     e.preventDefault();
     setSuccess('');
     setError('');
+    setLoading(true);
 
     try {
       const res = await axios.post('https://food-backend-w91g.onrender.com/login', user);
@@ -56,7 +59,6 @@ function Login() {
       localStorage.setItem('token', `bearer ${res.data.token}`);
       localStorage.setItem('username', res.data.username);
       localStorage.setItem('email', res.data.email);
-
       if (res.data.message === 'login successful') {
         setSuccess('Login successful');
         setTimeout(() => {
@@ -71,9 +73,11 @@ function Login() {
         }, 2000);
       } else {
         setError('Unexpected response from server.');
+        setLoading(false);
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');
+      setLoading(false);
     }
   };
 
@@ -202,6 +206,7 @@ function Login() {
                 variant="contained"
                 size="large"
                 color="warning"
+                disabled={loading}
                 sx={{ 
                   mt: 1, 
                   mb: 2, 
@@ -213,7 +218,12 @@ function Login() {
                   }
                 }}
               >
-                Sign In
+                {loading ? (
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <CircularProgress size={24} color="inherit" sx={{ mr: 1 }} />
+                    Signing In...
+                  </Box>
+                ) : 'Sign In'}
               </Button>
 
               <Divider sx={{ my: 2 }}>
@@ -251,4 +261,3 @@ function Login() {
 }
 
 export default Login;
-
