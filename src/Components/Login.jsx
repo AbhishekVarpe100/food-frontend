@@ -221,7 +221,7 @@ function Login() {
                 {loading ? (
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <CircularProgress size={24} color="inherit" sx={{ mr: 1 }} />
-                    Signing In...
+                    Signing In Please Wait...
                   </Box>
                 ) : 'Sign In'}
               </Button>
