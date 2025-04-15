@@ -92,6 +92,7 @@ function Item() {
             <div className="mt-4 space-y-2">
               <p className="text-lg font-medium">Price: <span className="text-blue-600">{ele.price} Rs.</span></p>
               <p className="text-lg font-medium">Quantity: <span className="text-blue-600">{ele.quantity} Items</span></p>
+              <p className="text-lg font-medium">Category: <span className="text-blue-600">{ele.category} Items</span></p>
             </div>
 
             {ele.quantity <= 5 && (
