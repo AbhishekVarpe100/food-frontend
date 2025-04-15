@@ -54,7 +54,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const res = await axios.post('https://food-backend-w91g.onrender.com/login', user);
+      const res = await axios.post('https://food-backend-1-xjm3.onrender.com/login', user);
 
       localStorage.setItem('token', `bearer ${res.data.token}`);
       localStorage.setItem('username', res.data.username);
