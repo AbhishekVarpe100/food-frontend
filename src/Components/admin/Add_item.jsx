@@ -30,7 +30,7 @@ function AddItem() {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('https://food-backend-w91g.onrender.com/add-item', formData);
+      const res = await axios.post('http://localhost:3000/add-item', formData);
       if (res.data.msg === 'added') {
         setSuccess('Added successfully');
         setUploading(false);
