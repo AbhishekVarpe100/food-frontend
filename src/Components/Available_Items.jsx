@@ -117,6 +117,8 @@ function Available_Items() {
                   className="w-full appearance-none bg-white border-2 border-blue-200 rounded-lg py-2 px-4 text-blue-800 font-serif focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                 >
                   <option value="">All Dishes</option>
+                  <option value="veg">By Veg Items</option>
+                  <option value="non-veg">By Non-Veg Items</option>
                   <option value="price">By Price</option>
                   <option value="quantity">By Availability</option>
                   <option value="name">Alphabetically</option>
