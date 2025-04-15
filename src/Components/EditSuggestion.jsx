@@ -12,7 +12,7 @@ function EditSuggestion() {
     useEffect(() => {
         const getInfo = async () => {
             try {
-                const res = await axios.get('https://food-backend-w91g.onrender.com/get-suggestion-info/' + id);
+                const res = await axios.get('https://food-backend-1-xjm3.onrender.com/get-suggestion-info/' + id);
                 setInfo(res.data);
                 if (res.data.length > 0) {
                     setSuggestions(res.data[0].suggestion);
@@ -27,7 +27,7 @@ function EditSuggestion() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.put(`https://food-backend-w91g.onrender.com/edit-suggestion/${id}`, { suggestion });
+            const res = await axios.put(`https://food-backend-1-xjm3.onrender.com/edit-suggestion/${id}`, { suggestion });
             if (res.data === 'edited') {
                 setShowNotification(true);
                 setTimeout(() => {

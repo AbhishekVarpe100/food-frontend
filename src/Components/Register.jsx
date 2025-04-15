@@ -55,7 +55,7 @@ function Register() {
     setIsSubmitting(true);
 
     try {
-      const res = await axios.post("https://food-backend-w91g.onrender.com/register", user);
+      const res = await axios.post("https://food-backend-1-xjm3.onrender.com/register", user);
       if (res.data.errors) {
         setErrors(Array.isArray(res.data.errors) ? res.data.errors : []);
       } else if (res.data.msg) {

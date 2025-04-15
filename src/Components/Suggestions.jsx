@@ -22,7 +22,7 @@ function Suggestions() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post('https://food-backend-w91g.onrender.com/add-suggestion', { username: localStorage.getItem('username'), suggestion }).then(res => {
+        axios.post('https://food-backend-1-xjm3.onrender.com/add-suggestion', { username: localStorage.getItem('username'), suggestion }).then(res => {
             if (res.data === 'added') {
                 alert("Posted");
                 setRender(prev => !prev);
@@ -32,21 +32,21 @@ function Suggestions() {
     };
 
     const handleDelete = async (id) => {
-        const res = await axios.delete(`https://food-backend-w91g.onrender.com/delete-suggestion/${id}`);
+        const res = await axios.delete(`https://food-backend-1-xjm3.onrender.com/delete-suggestion/${id}`);
         if (res.data) {
             setRender(prev => !prev);
         }
     };
 
     const handleLike = async (id) => {
-        const res = await axios.post('https://food-backend-w91g.onrender.com/like-suggestion', { id, username: localStorage.getItem('username') });
+        const res = await axios.post('https://food-backend-1-xjm3.onrender.com/like-suggestion', { id, username: localStorage.getItem('username') });
         if (res.data) {
             setRender(prev => !prev);
         }
     };
 
     const getAllLikes = async () => {
-        const res = await axios.get('https://food-backend-w91g.onrender.com/get-all-likes', { params: { username: localStorage.getItem('username') } });
+        const res = await axios.get('https://food-backend-1-xjm3.onrender.com/get-all-likes', { params: { username: localStorage.getItem('username') } });
         setLikes(res.data);
         setRender(prev => !prev);
     };
@@ -58,10 +58,10 @@ function Suggestions() {
 
     useEffect(() => {
         async function getSuggestions() {
-            axios.get('https://food-backend-w91g.onrender.com/get-suggestions', { params: { username: localStorage.getItem('username') } }).then(res => setData(res.data)).catch(err => console.log(err));
+            axios.get('https://food-backend-1-xjm3.onrender.com/get-suggestions', { params: { username: localStorage.getItem('username') } }).then(res => setData(res.data)).catch(err => console.log(err));
         }
         async function getSuggestionsOthers() {
-            axios.get('https://food-backend-w91g.onrender.com/get-suggestions-others', { params: { username: localStorage.getItem('username') } }).then(res => setDataOthers(res.data)).catch(err => console.log(err));
+            axios.get('https://food-backend-1-xjm3.onrender.com/get-suggestions-others', { params: { username: localStorage.getItem('username') } }).then(res => setDataOthers(res.data)).catch(err => console.log(err));
         }
         getSuggestions();
         getSuggestionsOthers();

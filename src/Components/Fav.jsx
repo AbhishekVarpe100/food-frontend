@@ -7,12 +7,12 @@ function Fav() {
     const [render, setRender] = useState(false);
 
     const getData = async () => {
-        const res = await axios.get('https://food-backend-w91g.onrender.com/get-fav', { params: { username: localStorage.getItem('username') } });
+        const res = await axios.get('https://food-backend-1-xjm3.onrender.com/get-fav', { params: { username: localStorage.getItem('username') } });
         setData(res.data);
     };
 
     const handleDelete = async (id) => {
-        const res = await axios.delete('https://food-backend-w91g.onrender.com/del-fav', { params: { id } });
+        const res = await axios.delete('https://food-backend-1-xjm3.onrender.com/del-fav', { params: { id } });
         if (res.data) {
             setRender(prev => !prev);
         }

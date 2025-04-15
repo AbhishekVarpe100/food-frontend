@@ -14,7 +14,7 @@ function Item() {
   const getData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("https://food-backend-w91g.onrender.com/get-item", { params: { id } });
+      const res = await axios.get("https://food-backend-1-xjm3.onrender.com/get-item", { params: { id } });
       setData([res.data]);
       setLoading(false);
     } catch (error) {
@@ -25,7 +25,7 @@ function Item() {
 
   const handleCart = async (id) => {
     try {
-      const res = await axios.post("https://food-backend-w91g.onrender.com/add-to-cart", {
+      const res = await axios.post("https://food-backend-1-xjm3.onrender.com/add-to-cart", {
         id,
         username: localStorage.getItem("username"),
       });
@@ -42,7 +42,7 @@ function Item() {
 
   const handleFavorite = async () => {
     try {
-      const res = await axios.post("https://food-backend-w91g.onrender.com/add-fav", {
+      const res = await axios.post("https://food-backend-1-xjm3.onrender.com/add-fav", {
         ...data[0],
         username: localStorage.getItem('username')
       });
@@ -56,7 +56,7 @@ function Item() {
 
   async function getStatus() {
     try {
-      const res = await axios.get('https://food-backend-w91g.onrender.com/get-status', {
+      const res = await axios.get('https://food-backend-1-xjm3.onrender.com/get-status', {
         params: { username: localStorage.getItem('username') }
       });
       setStatus(res.data);

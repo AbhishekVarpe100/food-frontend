@@ -9,7 +9,7 @@ function Update_Status() {
   const [reload, setReload] = useState(false);
 
   const getData = async () => {
-    const res = await axios.get('https://food-backend-w91g.onrender.com/get-status/' + id);
+    const res = await axios.get('https://food-backend-1-xjm3.onrender.com/get-status/' + id);
     setData(res.data);
   };
 
@@ -19,7 +19,7 @@ function Update_Status() {
   }, [status]);
 
   const updateStatus = async () => {
-    const res = await axios.put('https://food-backend-w91g.onrender.com/update-status/' + id, status);
+    const res = await axios.put('https://food-backend-1-xjm3.onrender.com/update-status/' + id, status);
   };
 
   const handleChange = (e) => {

@@ -9,13 +9,13 @@ function Update_quantity() {
   const navigate=useNavigate();
 
   const getData=async()=>{
-    const res=await axios.get('https://food-backend-w91g.onrender.com/get-item',{params:{id}})
+    const res=await axios.get('https://food-backend-1-xjm3.onrender.com/get-item',{params:{id}})
     setData(res.data)
 
   }
   const handleSubmit=async(e)=>{
       e.preventDefault();
-      const res=await axios.put('https://food-backend-w91g.onrender.com/update-quantity',{ quantity,id,av_quantity:data.quantity })
+      const res=await axios.put('https://food-backend-1-xjm3.onrender.com/update-quantity',{ quantity,id,av_quantity:data.quantity })
       if(res.data=='updated'){
         setMsg('Quantity updated')
         setTimeout(()=>{

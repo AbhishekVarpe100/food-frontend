@@ -41,14 +41,14 @@ function Cart() {
   };
 
   async function getData() {
-    const res = await axios.get("https://food-backend-w91g.onrender.com/get-cart", {
+    const res = await axios.get("https://food-backend-1-xjm3.onrender.com/get-cart", {
       params: { username: localStorage.getItem("username") },
     });
     setData(res.data);
   }
 
   async function handleDelete(id) {
-    const res = await axios.delete("https://food-backend-w91g.onrender.com/remove-cart/" + id);
+    const res = await axios.delete("https://food-backend-1-xjm3.onrender.com/remove-cart/" + id);
     if (res.data === "deleted") {
       setRender((prev) => !prev);
     }
@@ -57,7 +57,7 @@ function Cart() {
   const handleOrder = async (e) => {
     e.preventDefault();
     setRsp(true);
-    const res = await axios.post("https://food-backend-w91g.onrender.com/confirm-all-order", orderData);
+    const res = await axios.post("https://food-backend-1-xjm3.onrender.com/confirm-all-order", orderData);
     if (res.data === "ordered") {
       alert("Order confirmed!");
       setRsp(false);

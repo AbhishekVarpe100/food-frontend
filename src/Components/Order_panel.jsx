@@ -20,7 +20,7 @@ function OrderPanel() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get('https://food-backend-w91g.onrender.com/get-item', { params: { id } });
+        const res = await axios.get('https://food-backend-1-xjm3.onrender.com/get-item', { params: { id } });
         setData(res.data);
       } catch (error) {
         console.error("Error fetching item:", error);
@@ -70,7 +70,7 @@ function OrderPanel() {
     };
 
     try {
-      const res = await axios.post('https://food-backend-w91g.onrender.com/confirm-order',item);
+      const res = await axios.post('https://food-backend-1-xjm3.onrender.com/confirm-order',item);
       if (res.data) {
         localStorage.setItem('orderData', JSON.stringify({ name: name_, phone: num, item: data.name, price, quantity, av_quantity: data.quantity, address: addr, file: data.file }));
 
@@ -84,7 +84,7 @@ function OrderPanel() {
   };
   
   const handleCashOnDelivery=async()=>{
-    const res=await axios.post('https://food-backend-w91g.onrender.com/handle-cash-on-delivery',{item:localStorage.getItem('orderData')})
+    const res=await axios.post('https://food-backend-1-xjm3.onrender.com/handle-cash-on-delivery',{item:localStorage.getItem('orderData')})
     if(res.data){
       navigate('/main_home')
     }
@@ -92,7 +92,7 @@ function OrderPanel() {
 
   const handlePayment = async () => {
     try {
-      const { data } = await axios.post("https://food-backend-w91g.onrender.com/create-order", { price: price,orderData:localStorage.getItem('orderData')}); // Converting to paise
+      const { data } = await axios.post("https://food-backend-1-xjm3.onrender.com/create-order", { price: price,orderData:localStorage.getItem('orderData')}); // Converting to paise
       const isScriptLoaded = await loadRazorpayScript();
 
       if (!isScriptLoaded) {

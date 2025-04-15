@@ -9,7 +9,7 @@ function ReplyToSuggestion() {
 
   const handleReply = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://food-backend-w91g.onrender.com/post-reply", {
+    const res = await axios.post("https://food-backend-1-xjm3.onrender.com/post-reply", {
       reply,
       id,
     });

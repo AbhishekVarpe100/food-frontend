@@ -9,13 +9,13 @@ function Update_Price() {
   const navigate=useNavigate();
 
   const getData=async()=>{
-    const res=await axios.get('https://food-backend-w91g.onrender.com/get-item',{params:{id}})
+    const res=await axios.get('https://food-backend-1-xjm3.onrender.com/get-item',{params:{id}})
     setData(res.data)
 
   }
   const handleSubmit=async(e)=>{
       e.preventDefault();
-      const res=await axios.put('https://food-backend-w91g.onrender.com/update-price',{ price,id,prev_price:data.price })
+      const res=await axios.put('https://food-backend-1-xjm3.onrender.com/update-price',{ price,id,prev_price:data.price })
       if(res.data=='updated'){
         setMsg('Price updated')
         setTimeout(()=>{

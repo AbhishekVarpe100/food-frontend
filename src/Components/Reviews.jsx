@@ -28,7 +28,7 @@ const Reviews = () => {
 
     const handlePost = async (e) => {
         e.preventDefault();
-        const res = await axios.post('https://food-backend-w91g.onrender.com/post-comment', {
+        const res = await axios.post('https://food-backend-1-xjm3.onrender.com/post-comment', {
             id,
             username: localStorage.getItem('username'),
             rating,
@@ -42,12 +42,12 @@ const Reviews = () => {
     };
     
     const getReviews = async () => {
-        const res = await axios.get('https://food-backend-w91g.onrender.com/get-reviews/' + id);
+        const res = await axios.get('https://food-backend-1-xjm3.onrender.com/get-reviews/' + id);
         setReviews(res.data);
     };
     
     const handleDelete = async (review_id) => {
-        const res = await axios.delete('https://food-backend-w91g.onrender.com/delete-review', {
+        const res = await axios.delete('https://food-backend-1-xjm3.onrender.com/delete-review', {
             params: {
                 review_id,
                 item_id: id

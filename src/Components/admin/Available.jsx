@@ -21,7 +21,7 @@ function Available() {
   async function getData() {  
     setLoading(true);
     try {
-      const res = await axios("https://food-backend-w91g.onrender.com/get-data");
+      const res = await axios("https://food-backend-1-xjm3.onrender.com/get-data");
       setData(res.data.data);
       setTotalItems(res.data.total)
     } catch (error) {
@@ -33,7 +33,7 @@ function Available() {
   
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`https://food-backend-w91g.onrender.com/delete-item/${id}`);
+      const res = await axios.delete(`https://food-backend-1-xjm3.onrender.com/delete-item/${id}`);
       if (res.data === 'deleted') {
         setDelete((prev) => !prev);
       }
@@ -46,7 +46,7 @@ function Available() {
     const updatedPage = page + 3;
     setLoading(true);
     try {
-      const res = await axios.post('https://food-backend-w91g.onrender.com/next-page', { page: updatedPage });
+      const res = await axios.post('https://food-backend-1-xjm3.onrender.com/next-page', { page: updatedPage });
       if (res) {
         setData(res.data);
         setPage(updatedPage);
@@ -62,7 +62,7 @@ function Available() {
     const updatedPage = page - 3;
     setLoading(true);
     try {
-      const res = await axios.post('https://food-backend-w91g.onrender.com/prev-page', { page: updatedPage });
+      const res = await axios.post('https://food-backend-1-xjm3.onrender.com/prev-page', { page: updatedPage });
       if (res) {
         setData(res.data);
         setPage(updatedPage);

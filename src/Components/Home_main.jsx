@@ -17,7 +17,7 @@ const HomeMain = () => {
 
   const checkUserValid = async () => {
     try {
-      const res = await axios.get("https://food-backend-w91g.onrender.com/gethome", { params: { token } });
+      const res = await axios.get("https://food-backend-1-xjm3.onrender.com/gethome", { params: { token } });
       if (res.data.msg === "token not present") {
         setIsTokenPresent(false);
       } else if (res.data.msg === "invalid token") {
